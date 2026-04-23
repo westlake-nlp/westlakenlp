@@ -29,16 +29,12 @@
     letter-spacing: 0.01em;
 }
 .brand:hover { color: var(--color-accent); text-decoration: none; }
-.brand-mark {
-    width: 28px; height: 28px;
+.brand-logo {
+    width: 28px;
+    height: 28px;
     border-radius: 6px;
-    background: linear-gradient(135deg, var(--color-accent) 0%, #1a5c91 100%);
-    color: #fff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 13px;
+    object-fit: contain;
+    display: block;
 }
 
 .nav { display: flex; align-items: center; gap: 4px; }
@@ -544,9 +540,9 @@
     width: 100%;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    background: #000;
+    background: #f0f2f4;
     box-shadow: var(--shadow-md);
-    aspect-ratio: 16 / 7;
+    aspect-ratio: 3 / 2;
 }
 .carousel-track {
     display: flex;
@@ -560,7 +556,7 @@
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 .carousel-btn {

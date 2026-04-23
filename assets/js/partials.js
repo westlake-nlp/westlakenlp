@@ -10,7 +10,7 @@ window.SITE.HEADER_HTML = `
 <header class="site-header">
     <div class="container">
         <a class="brand" href="index.html">
-            <span class="brand-mark">W</span>
+            <img class="brand-logo" src="assets/images/sch-300x300.png" alt="WestlakeNLP logo">
             <span>WestlakeNLP</span>
         </a>
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
