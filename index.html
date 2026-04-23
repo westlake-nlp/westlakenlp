@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WestlakeNLP — Natural Language Processing Lab at Westlake University</title>
 <meta name="description" content="WestlakeNLP is a research lab at Westlake University led by Prof. Yue Zhang, focusing on fundamental and applied research in Natural Language Processing, large language models, and general artificial intelligence.">
-<link rel="icon" type="image/png" href="https://westlakenlp.com/wp-content/uploads/2025/01/sch-300x300.png">
+<link rel="icon" type="image/png" href="assets/images/sch-300x300.png">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
 </head>
@@ -31,7 +31,32 @@
             </div>
         </div>
         <div class="hero-media reveal">
-            <img src="https://westlakenlp.com/wp-content/uploads/2025/01/sch-300x300.png" alt="WestlakeNLP emblem" loading="lazy">
+            <img src="assets/images/sch-300x300.png" alt="WestlakeNLP emblem" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="eyebrow">Lab Life</div>
+            <h2>A glimpse of the team</h2>
+        </div>
+        <div class="carousel reveal" id="labCarousel">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                    <img src="assets/images/slide1.jpg" alt="WestlakeNLP team photo" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/images/slide2.jpg" alt="WestlakeNLP team photo" loading="lazy">
+                </div>
+            </div>
+            <button class="carousel-btn prev" aria-label="Previous slide">&#8249;</button>
+            <button class="carousel-btn next" aria-label="Next slide">&#8250;</button>
+            <div class="carousel-dots">
+                <button class="carousel-dot active" aria-label="Slide 1"></button>
+                <button class="carousel-dot" aria-label="Slide 2"></button>
+            </div>
         </div>
     </div>
 </section>
@@ -183,5 +208,33 @@
 
 <script>document.write(window.SITE.FOOTER_HTML);</script>
 <script src="assets/js/main.js"></script>
+<script>
+(function () {
+    var track = document.getElementById('carouselTrack');
+    var dots  = document.querySelectorAll('#labCarousel .carousel-dot');
+    var total = document.querySelectorAll('#labCarousel .carousel-slide').length;
+    var idx   = 0;
+    var timer;
+
+    function goTo(n) {
+        idx = (n + total) % total;
+        track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+    }
+
+    function next() { goTo(idx + 1); }
+    function prev() { goTo(idx - 1); }
+
+    function resetTimer() { clearInterval(timer); timer = setInterval(next, 8000); }
+
+    document.querySelector('#labCarousel .next').addEventListener('click', function () { next(); resetTimer(); });
+    document.querySelector('#labCarousel .prev').addEventListener('click', function () { prev(); resetTimer(); });
+    dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { goTo(i); resetTimer(); });
+    });
+
+    timer = setInterval(next, 8000);
+})();
+</script>
 </body>
 </html>
